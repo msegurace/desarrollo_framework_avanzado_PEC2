@@ -1,0 +1,32 @@
+<div class="container">
+  <div style="margin-left: auto; margin-right: auto">
+    <p id="categoryFeedback"></p>
+  </div>
+  <mat-card class="mat-elevation-z4">
+    <form action="" [formGroup]="categoryForm" (ngSubmit)="saveCategory()">
+      <section>
+        <mat-form-field appearance="fill">
+          <mat-label>Enter Title</mat-label>
+          <input matInput type="text" [formControl]="title" required aria-label="title" />
+          <mat-error>{{ errors.title }}</mat-error>
+        </mat-form-field>
+      </section>
+      <section>
+        <mat-form-field appearance="fill">
+          <mat-label>Enter Description</mat-label>
+          <input matInput type="text" [formControl]="description" required aria-label="description" />
+          <mat-error>{{ errors.description }}</mat-error>
+        </mat-form-field>
+      </section>
+      <section>
+        <mat-form-field appearance="fill">
+          <mat-label>Enter Css color</mat-label>
+          <input matInput type="text" [formControl]="css_color" required aria-label="css_color" />
+          <mat-error>{{ errors.css_color }}</mat-error>
+        </mat-form-field>
+      </section>
+      <section style="text-align: center;">
+        <button mat-raised-button color="primary" type="submit" [disabled]="!categoryForm.valid">Add</button>
+      </section>
+    </form>
+  </mat-card>
