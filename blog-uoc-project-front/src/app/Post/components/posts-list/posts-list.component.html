@@ -28,13 +28,17 @@
     </ng-container>
     <ng-container matColumnDef="categories">
       <th mat-header-cell *matHeaderCellDef> Categories </th>
-      <td mat-cell *matCellDef="let post"> {{post.categories}} </td>
+      <td mat-cell *matCellDef="let post">
+        <span *ngFor="let category of post.categories">
+          {{ category.title }} <br />
+        </span>
+      </td>
     </ng-container>
     <ng-container matColumnDef="actions">
       <th mat-header-cell *matHeaderCellDef>Actions</th>
       <td mat-cell *matCellDef="let post">
-        <button mat-button><i class="fa fa-edit" (click)="updatePost(post.postId)"></i> Edit </button>
-        <button mat-button><i class="fa fa-delete" (click)="deletePost(post.postId)"></i> Delete </button>
+        <button mat-button><i class="fa fa-edit" (click)="updatePost(post.postId)"></i></button>
+        <button mat-button><i class="fa fa-trash" (click)="deletePost(post.postId)"></i></button>
       </td>
     </ng-container>
     <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>

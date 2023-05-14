@@ -5,11 +5,24 @@ import { PostService } from 'src/app/Post/services/post.service';
 import { AppState } from 'src/app/app.reducers';
 import { SharedService } from '../../Services/shared.service';
 import { HttpErrorResponse } from '@angular/common/http';
+import {
+  animate,
+  state,
+  style,
+  transition,
+  trigger,
+} from '@angular/animations';
 
 @Component({
   selector: 'app-card',
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.scss'],
+  animations: [
+    trigger('fadeInOut', [
+      state('void', style({ opacity: 0.2 })),
+      transition('void <=> *', animate(1500)),
+    ]),
+  ],
 })
 export class AppCardComponent {
   @Input() post?: PostDTO;

@@ -6,8 +6,6 @@ import * as PostsAction from '../../actions';
 import { PostDTO } from '../../models/post.dto';
 import { PostsState } from '../../reducers';
 import { Observable } from 'rxjs';
-import { faFontAwesomeFlag } from '@fortawesome/free-brands-svg-icons';
-import { icon } from '@fortawesome/fontawesome-svg-core';
 
 @Component({
   selector: 'app-posts-list',

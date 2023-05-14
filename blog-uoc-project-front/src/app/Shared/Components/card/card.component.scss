@@ -5,6 +5,9 @@
   margin-right: auto;
   margin-top: 10px;
   border-radius: 10px;
+  min-width: 250px;
+  min-height: 250px;
+  padding: 25px;
 }
 
 .card:hover {
@@ -17,4 +20,9 @@
   margin-left: 5px;
   border-radius: 10px;
   padding: 5px 10px;
+}
+
+.card img {
+  background-size: cover;
+  margin-top: 20px;
 }
