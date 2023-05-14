@@ -1,11 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { NONE_TYPE } from '@angular/compiler';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { SharedService } from 'src/app/Shared/Services/shared.service';
 import { PostDTO } from '../models/post.dto';
-
 interface updateResponse {
   affected: number;
 }

@@ -11,6 +11,8 @@ import { AppState } from 'src/app/app.reducers';
 import * as CategoriesAction from '../../actions';
 import { CategoryDTO } from '../../models/category.dto';
 import { ErrorHandler } from 'src/app/error.handler';
+import { CategoriesState } from '../../reducers';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-category-form',
@@ -33,12 +35,15 @@ export class CategoryFormComponent implements OnInit {
 
   errors: any = {};
 
+  categoryState: Observable<CategoriesState>;
   constructor(
     private activatedRoute: ActivatedRoute,
     private formBuilder: FormBuilder,
     private store: Store<AppState>,
     private errorHandler: ErrorHandler
   ) {
+    this.categoryState = store.select('categories');
+
     this.userId = '';
 
     this.isValidForm = null;

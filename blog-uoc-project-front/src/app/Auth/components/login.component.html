@@ -24,4 +24,12 @@
       </section>
     </form>
   </mat-card>
+  <div *ngIf="auth | async as a">
+    <div class="overlay" *ngIf="a.loading">
+      <div class="center">
+        <mat-progress-spinner diameter=50 mode="indeterminate" color="accent">
+        </mat-progress-spinner>
+      </div>
+    </div>
+  </div>
 </div>

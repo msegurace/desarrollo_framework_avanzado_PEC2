@@ -34,7 +34,7 @@ const _authReducer = createReducer(
   on(loginFailure, (state, { payload }) => ({
     ...state,
     loading: false,
-    loaded: false,
+    loaded: true,
     error: { payload },
   })),
   on(logout, () => initialState)

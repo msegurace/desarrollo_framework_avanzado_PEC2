@@ -10,6 +10,8 @@ import { AppState } from 'src/app/app.reducers';
 import * as AuthAction from '../actions';
 import { AuthDTO } from '../models/auth.dto';
 import { ErrorHandler } from 'src/app/error.handler';
+import { Observable, of } from 'rxjs';
+import { AuthState } from '../reducers';
 
 @Component({
   selector: 'app-login',
@@ -21,6 +23,8 @@ export class LoginComponent implements OnInit {
   password: FormControl;
   loginForm: FormGroup;
 
+  auth: Observable<AuthState>;
+
   errors: any = {};
 
   constructor(
@@ -28,6 +32,7 @@ export class LoginComponent implements OnInit {
     private store: Store<AppState>,
     private errorHandler: ErrorHandler
   ) {
+    this.auth = this.store.select('auth');
     this.email = new FormControl('', [
       Validators.required,
       Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$'),
@@ -58,25 +63,5 @@ export class LoginComponent implements OnInit {
     };
 
     this.store.dispatch(AuthAction.login({ credentials }));
-  }
-
-  getErrorMessage(controlName: string): string {
-    if (controlName === 'email') {
-      if (this.email.hasError.length > 0) {
-        return 'You must enter a valid email';
-      }
-    }
-    if (controlName === 'password') {
-      if (this.password.hasError('required')) {
-        return 'You must enter a password';
-      }
-      if (
-        this.password.hasError('minLength') ||
-        this.password.hasError('maxLength')
-      ) {
-        return 'Password must be between 8 and 16 characters long';
-      }
-    }
-    return '';
   }
 }

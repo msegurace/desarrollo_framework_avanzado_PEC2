@@ -52,7 +52,7 @@ const _categoriesReducer = createReducer(
   on(getCategoriesByUserIdFailure, (state, { payload }) => ({
     ...state,
     loading: false,
-    loaded: false,
+    loaded: true,
     error: { payload },
   })),
   on(deleteCategory, (state) => ({
@@ -75,7 +75,7 @@ const _categoriesReducer = createReducer(
   on(deleteCategoryFailure, (state, { payload }) => ({
     ...state,
     loading: false,
-    loaded: false,
+    loaded: true,
     error: { payload },
   })),
   on(getCategoryById, (state) => ({
@@ -94,7 +94,7 @@ const _categoriesReducer = createReducer(
   on(getCategoryByIdFailure, (state, { payload }) => ({
     ...state,
     loading: false,
-    loaded: false,
+    loaded: true,
     error: { payload },
   })),
   on(createCategory, (state) => ({
@@ -113,7 +113,7 @@ const _categoriesReducer = createReducer(
   on(createCategoryFailure, (state, { payload }) => ({
     ...state,
     loading: false,
-    loaded: false,
+    loaded: true,
     error: { payload },
   })),
   on(updateCategory, (state) => ({
@@ -132,7 +132,7 @@ const _categoriesReducer = createReducer(
   on(updateCategoryFailure, (state, { payload }) => ({
     ...state,
     loading: false,
-    loaded: false,
+    loaded: true,
     error: { payload },
   }))
 );

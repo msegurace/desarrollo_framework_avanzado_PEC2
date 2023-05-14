@@ -44,7 +44,7 @@ const _userReducer = createReducer(
   on(registerFailure, (state, { payload }) => ({
     ...state,
     loading: false,
-    loaded: false,
+    loaded: true,
     error: { payload },
   })),
   on(updateUser, (state) => ({
@@ -63,7 +63,7 @@ const _userReducer = createReducer(
   on(updateUserFailure, (state, { payload }) => ({
     ...state,
     loading: false,
-    loaded: false,
+    loaded: true,
     error: { payload },
   })),
   on(getUserById, (state) => ({
@@ -82,7 +82,7 @@ const _userReducer = createReducer(
   on(getUserByIdFailure, (state, { payload }) => ({
     ...state,
     loading: false,
-    loaded: false,
+    loaded: true,
     error: { payload },
   }))
 );

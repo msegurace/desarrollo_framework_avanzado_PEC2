@@ -14,6 +14,8 @@ import * as CategoriesAction from '../../../Category/actions';
 import * as PostsAction from '../../actions';
 import { PostDTO } from '../../models/post.dto';
 import { ErrorHandler } from 'src/app/error.handler';
+import { PostsState } from '../../reducers';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-post-form',
@@ -41,6 +43,8 @@ export class PostFormComponent implements OnInit {
 
   errors: any = {};
 
+  postState: Observable<PostsState>;
+
   constructor(
     private activatedRoute: ActivatedRoute,
     private formBuilder: FormBuilder,
@@ -48,6 +52,7 @@ export class PostFormComponent implements OnInit {
     private errorHandler: ErrorHandler
   ) {
     this.userId = '';
+    this.postState = store.select('posts');
 
     this.isValidForm = null;
     this.postId = this.activatedRoute.snapshot.paramMap.get('id');

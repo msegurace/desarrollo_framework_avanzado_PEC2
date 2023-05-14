@@ -11,6 +11,8 @@ import { AppState } from 'src/app/app.reducers';
 import * as UserAction from '../../actions';
 import { UserDTO } from '../../models/user.dto';
 import { ErrorHandler } from 'src/app/error.handler';
+import { UserState } from '../../reducers';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-register',
@@ -33,12 +35,16 @@ export class RegisterComponent implements OnInit {
 
   errors: any = {};
 
+  userState: Observable<UserState>;
+
   constructor(
     private formBuilder: FormBuilder,
     private store: Store<AppState>,
     private errorHandler: ErrorHandler
   ) {
     this.registerUser = new UserDTO('', '', '', '', new Date(), '', '');
+
+    this.userState = store.select('user');
 
     this.isValidForm = null;
 

@@ -13,7 +13,9 @@ import { MatCardModule } from '@angular/material/card';
 import { MatSelectModule } from '@angular/material/select';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
-
+import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { AppCardComponent } from '../Shared/Components/card/card.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 @NgModule({
   declarations: [
     PostsListComponent,
@@ -21,6 +23,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     HomeComponent,
     FormatDatePipe,
     DashboardComponent,
+    AppCardComponent,
   ],
   imports: [
     CommonModule,
@@ -32,6 +35,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     MatSelectModule,
     MatTableModule,
     MatPaginatorModule,
+    NgxChartsModule,
+    MatProgressSpinnerModule,
   ],
 })
 export class PostModule {}

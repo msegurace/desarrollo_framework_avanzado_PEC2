@@ -4,6 +4,10 @@ import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/app.reducers';
 import * as PostsAction from '../../actions';
 import { PostDTO } from '../../models/post.dto';
+import { PostsState } from '../../reducers';
+import { Observable } from 'rxjs';
+import { faFontAwesomeFlag } from '@fortawesome/free-brands-svg-icons';
+import { icon } from '@fortawesome/fontawesome-svg-core';
 
 @Component({
   selector: 'app-posts-list',
@@ -25,9 +29,11 @@ export class PostsListComponent {
     'actions',
   ];
 
+  postState: Observable<PostsState>;
   constructor(private router: Router, private store: Store<AppState>) {
     this.userId = '';
     this.posts = new Array<PostDTO>();
+    this.postState = store.select('posts');
 
     this.store.select('auth').subscribe((auth) => {
       if (auth.credentials.user_id) {

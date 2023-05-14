@@ -4,6 +4,8 @@ import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/app.reducers';
 import * as CategoriesAction from '../../actions';
 import { CategoryDTO } from '../../models/category.dto';
+import { CategoriesState } from '../../reducers';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-categories-list',
@@ -16,7 +18,10 @@ export class CategoriesListComponent {
   private userId: string;
 
   columnsToDisplay = ['id', 'title', 'description', 'css_color', 'actions'];
+
+  categoryState: Observable<CategoriesState>;
   constructor(private router: Router, private store: Store<AppState>) {
+    this.categoryState = store.select('categories');
     this.userId = '';
     this.categories = new Array<CategoryDTO>();
 

@@ -40,4 +40,12 @@
       </section>
     </form>
   </mat-card>
+  <div *ngIf="postState | async as p">
+    <div class="overlay" *ngIf="p.loading">
+      <div class="center">
+        <mat-progress-spinner diameter=50 mode="indeterminate" color="accent">
+        </mat-progress-spinner>
+      </div>
+    </div>
+  </div>
 </div>

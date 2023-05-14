@@ -61,7 +61,7 @@ const _postsReducer = createReducer(
   on(getPostsByUserIdFailure, (state, { payload }) => ({
     ...state,
     loading: false,
-    loaded: false,
+    loaded: true,
     error: { payload },
   })),
   on(deletePost, (state) => ({
@@ -80,7 +80,7 @@ const _postsReducer = createReducer(
   on(deletePostFailure, (state, { payload }) => ({
     ...state,
     loading: false,
-    loaded: false,
+    loaded: true,
     error: { payload },
   })),
   on(getPostById, (state) => ({
@@ -99,7 +99,7 @@ const _postsReducer = createReducer(
   on(getPostByIdFailure, (state, { payload }) => ({
     ...state,
     loading: false,
-    loaded: false,
+    loaded: true,
     error: { payload },
   })),
   on(createPost, (state) => ({
@@ -118,7 +118,7 @@ const _postsReducer = createReducer(
   on(createPostFailure, (state, { payload }) => ({
     ...state,
     loading: false,
-    loaded: false,
+    loaded: true,
     error: { payload },
   })),
   on(updatePost, (state) => ({
@@ -137,7 +137,7 @@ const _postsReducer = createReducer(
   on(updatePostFailure, (state, { payload }) => ({
     ...state,
     loading: false,
-    loaded: false,
+    loaded: true,
     error: { payload },
   })),
   on(getPosts, (state) => ({
@@ -156,7 +156,7 @@ const _postsReducer = createReducer(
   on(getPostsFailure, (state, { payload }) => ({
     ...state,
     loading: false,
-    loaded: false,
+    loaded: true,
     error: { payload },
   })),
   on(likePost, (state) => ({
@@ -183,7 +183,7 @@ const _postsReducer = createReducer(
   on(likePostFailure, (state, { payload }) => ({
     ...state,
     loading: false,
-    loaded: false,
+    loaded: true,
     error: { payload },
   })),
   on(dislikePost, (state) => ({
@@ -210,7 +210,7 @@ const _postsReducer = createReducer(
   on(dislikePostFailure, (state, { payload }) => ({
     ...state,
     loading: false,
-    loaded: false,
+    loaded: true,
     error: { payload },
   }))
 );
